@@ -1,0 +1,56 @@
+.md-toc {
+    position: fixed !important;
+    left: 0;
+    top: 50% !important;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding-right: 30px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: rgb(255, 255, 255);
+}
+
+.md-toc::before {
+    content: "目录";
+    position: relative;
+    left: 40%;
+}
+
+.toc-ctrl {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(244, 41, 41);
+}
+
+.toc-ctrl::before {
+    content: ">>>";
+    cursor: pointer;
+    display: none;
+}
+
+.toc-ctrl::after {
+    content: "<<<";
+    cursor: pointer;
+}
+
+@media (max-width:1080px) {
+    .md-toc {
+        transform: translate(-100%, -50%);
+    }
+
+    .toc-ctrl {
+        left: 125%;
+        top: -40vh;
+        display: inline-block;
+    }
+
+    .toc-ctrl::before {
+        display: block;
+    }
+
+    .toc-ctrl::after {
+        display: none;
+    }
+}

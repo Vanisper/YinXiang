@@ -1,0 +1,178 @@
+const imgObjArr = [
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_01.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_01.jpg",
+    "imgDesc": "",
+    "width": 750,
+    "height": 562
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_02.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_02.jpg",
+    "imgDesc": "",
+    "width": 750,
+    "height": 750
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_03.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_03.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_04.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_04.jpg",
+    "imgDesc": "",
+    "width": 4000,
+    "height": 6000
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_05.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_05.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_06.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_06.jpg",
+    "imgDesc": "",
+    "width": 5184,
+    "height": 3456
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_07.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_07.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_08.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_08.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_09.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_09.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_10.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_10.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_11.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_11.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_12.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_12.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_13.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_13.jpg",
+    "imgDesc": "",
+    "width": 5184,
+    "height": 3456
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_14.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_14.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_15.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_15.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_16.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_16.jpg",
+    "imgDesc": "",
+    "width": 5184,
+    "height": 3456
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_17.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_17.jpg",
+    "imgDesc": "",
+    "width": 3368,
+    "height": 6000
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_18.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_18.jpg",
+    "imgDesc": "",
+    "width": 3024,
+    "height": 4032
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_19.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_19.jpg",
+    "imgDesc": "",
+    "width": 5997,
+    "height": 3366
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_20.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_20.jpg",
+    "imgDesc": "",
+    "width": 3368,
+    "height": 2059
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_21.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_21.jpg",
+    "imgDesc": "",
+    "width": 6000,
+    "height": 3368
+  },
+  {
+    "imgHost": "smthing",
+    "imgName": "smthing_22.jpg",
+    "imgUrl": "./img/kinds/yw/smthing_22.jpg",
+    "imgDesc": "",
+    "width": 3770,
+    "height": 2827
+  }
+]

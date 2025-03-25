@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="./favicon.png" type="image/x-icon">
+<link href='https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+/* meyer reset -- http://meyerweb.com/eric/tools/css/reset/ , v2.0 | 20110126 | License: none (public domain) */
+
+@include-when-export url(https://fonts.loli.net/css?family=PT+Serif:400,400italic,700,700italic&subset=latin,cyrillic-ext,cyrillic,latin-ext);
+
+/* =========== */
+
+/* pt-serif-regular - latin */
+/* pt-serif-italic - latin */
+/* pt-serif-700 - latin */
+/* pt-serif-700italic - latin */
+:root {
+	--active-file-bg-color: #dadada;
+	--active-file-bg-color: rgba(32, 43, 51, 0.63);
+	--active-file-text-color: white;
+	--bg-color: #f3f2ee;
+	--text-color: #1f0909;
+	--control-text-color: #444;
+	--rawblock-edit-panel-bd: #e5e5e5;
+
+	--select-text-bg-color: rgba(32, 43, 51, 0.63);
+  --select-text-font-color: white;
+}
+
+pre {
+	--select-text-bg-color: #36284e;
+	--select-text-font-color: #fff;
+}
+
+html {
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	background-color: #f3f2ee;
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+	color: #1f0909;
+	line-height: 1.5em;
+}
+
+/*#write {
+	overflow-x: auto;
+    max-width: initial;
+	padding-left: calc(50% - 17em);
+    padding-right: calc(50% - 17em);
+}
+
+@media (max-width: 36em) {
+ 	#write {
+ 		padding-left: 1em;
+    	padding-right: 1em;
+ 	}
+}*/
+
+#write {
+	max-width: 40em;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+			max-width: 914px;
+	}
+}
+
+ol li {
+	list-style-type: decimal;
+	list-style-position: outside;
+}
+ul li {
+	list-style-type: disc;
+	list-style-position: outside;
+}
+
+ol,
+ul {
+	list-style: none;
+}
+
+blockquote,
+q {
+	quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* styles */
+
+/* ====== */
+
+/* headings */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: bold;
+}
+h1 {
+	font-size: 1.875em;
+	/*30 / 16*/
+	line-height: 1.6em;
+	/* 48 / 30*/
+	margin-top: 2em;
+}
+h2,
+h3 {
+	font-size: 1.3125em;
+	/*21 / 16*/
+	line-height: 1.15;
+	/*24 / 21*/
+	margin-top: 2.285714em;
+	/*48 / 21*/
+	margin-bottom: 1.15em;
+	/*24 / 21*/
+}
+h3 {
+	font-weight: normal;
+}
+h4 {
+	font-size: 1.125em;
+	/*18 / 16*/
+	margin-top: 2.67em;
+	/*48 / 18*/
+}
+h5,
+h6 {
+	font-size: 1em;
+	/*16*/
+}
+h1 {
+	border-bottom: 1px solid;
+	margin-bottom: 1.875em;
+	padding-bottom: 0.8125em;
+}
+/* links */
+
+a {
+	text-decoration: none;
+	color: #065588;
+}
+a:hover,
+a:active {
+	text-decoration: underline;
+}
+/* block spacing */
+
+p,
+blockquote,
+.md-fences {
+	margin-bottom: 1.5em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: 1.5em;
+}
+/* blockquote */
+
+blockquote {
+	font-style: italic;
+	border-left: 5px solid;
+	margin-left: 2em;
+	padding-left: 1em;
+}
+/* lists */
+
+ul,
+ol {
+	margin: 0 0 1.5em 1.5em;
+}
+/* tables */
+.md-meta,.md-before, .md-after {
+	color:#999;
+}
+
+table {
+	margin-bottom: 1.5em;
+	/*24 / 16*/
+	font-size: 1em;
+	/* width: 100%; */
+}
+thead th,
+tfoot th {
+	padding: .25em .25em .25em .4em;
+	text-transform: uppercase;
+}
+th {
+	text-align: left;
+}
+td {
+	vertical-align: top;
+	padding: .25em .25em .25em .4em;
+}
+
+code,
+.md-fences {
+	background-color: #dadada;
+}
+
+code {
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+.md-fences {
+	margin-left: 2em;
+	margin-bottom: 3em;
+	padding-left: 1ch;
+	padding-right: 1ch;
+}
+
+pre,
+code,
+tt {
+	font-size: .875em;
+	line-height: 1.714285em;
+}
+/* some fixes */
+
+h1 {
+	line-height: 1.3em;
+	font-weight: normal;
+	margin-bottom: 0.5em;
+}
+
+p + ul,
+p + ol{
+	margin-top: .5em;
+}
+
+h3 + ul,
+h4 + ul,
+h5 + ul,
+h6 + ul,
+h3 + ol,
+h4 + ol,
+h5 + ol,
+h6 + ol {
+	margin-top: .5em;
+}
+
+li > ul,
+li > ol {
+	margin-top: inherit;
+	margin-bottom: 0;
+}
+
+li ol>li {
+	list-style-type: lower-alpha;
+}
+
+li li ol>li{
+	list-style-type: lower-roman;
+}
+
+h2,
+h3 {
+	margin-bottom: .75em;
+}
+hr {
+	border-top: none;
+	border-right: none;
+	border-bottom: 1px solid;
+	border-left: none;
+}
+h1 {
+	border-color: #c5c5c5;
+}
+blockquote {
+	border-color: #bababa;
+	color: #656565;
+}
+
+blockquote ul,
+blockquote ol {
+	margin-left:0;
+}
+
+.ty-table-edit {
+	background-color: transparent;
+}
+thead {
+	background-color: #dadada;
+}
+tr:nth-child(even) {
+	background: #e8e7e7;
+}
+hr {
+	border-color: #c5c5c5;
+}
+.task-list{
+	padding-left: 1rem;
+}
+
+.md-task-list-item {
+	padding-left: 1.5rem;
+	list-style-type: none;
+}
+
+.md-task-list-item > input:before {
+	content: '\221A';
+	display: inline-block;
+	width: 1.25rem;
+  	height: 1.6rem;
+	vertical-align: middle;
+	text-align: center;
+	color: #ddd;
+	background-color: #F3F2EE;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before{
+	color: inherit;
+}
+
+#write pre.md-meta-block {
+	min-height: 1.875rem;
+	color: #555;
+	border: 0px;
+	background: transparent;
+	margin-top: -4px;
+	margin-left: 1em;
+	margin-top: 1em;
+}
+
+.md-image>.md-meta {
+	color: #9B5146;
+}
+
+.md-image>.md-meta{
+	font-family: Menlo, 'Ubuntu Mono', Consolas, 'Courier New', 'Microsoft Yahei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', serif;
+}
+
+
+#write>h3.md-focus:before{
+	left: -1.5rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h4.md-focus:before{
+	left: -1.5rem;
+	top: .25rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h5.md-focus:before{
+	left: -1.5rem;
+	top: .0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+#write>h6.md-focus:before{
+	left: -1.5rem;
+	top: 0.3125rem;
+	color:#999;
+	border-color:#999;
+}
+
+.md-toc:focus .md-toc-content{
+	margin-top: 19px;
+}
+
+.md-toc-content:empty:before{
+	color: #065588;
+}
+.md-toc-item {
+	color: #065588;
+}
+#write div.md-toc-tooltip {
+	background-color: #f3f2ee;
+}
+
+#typora-sidebar {
+	background-color: #f3f2ee;
+	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+  	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.375);
+}
+
+.pin-outline #typora-sidebar {
+	background: inherit;
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+.pin-outline #typora-sidebar:hover .outline-title-wrapper {
+	border-left:1px dashed;
+}
+
+.outline-item:hover {
+  background-color: #dadada;
+  border-left: 28px solid #dadada;
+  border-right: 18px solid #dadada;
+}
+
+.typora-node .outline-item:hover {
+  	border-right: 28px solid #dadada;
+}
+
+.outline-expander:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size:14px;
+  top: 1px;
+}
+
+.outline-expander:hover:before,
+.outline-item-open>.outline-item>.outline-expander:before {
+  content: "\f0d7";
+}
+
+.modal-content {
+	background-color: #f3f2ee;
+}
+
+.auto-suggest-container ul li {
+	list-style-type: none;
+}
+
+/** UI for electron */
+
+.megamenu-menu,
+#top-titlebar, #top-titlebar *,
+.megamenu-content {
+	background: #f3f2ee;
+	color: #1f0909;
+}
+
+.megamenu-menu-header {
+	border-bottom: 1px dashed #202B33;
+}
+
+.megamenu-menu {
+	box-shadow: none;
+	border-right: 1px dashed;
+}
+
+header, .context-menu, .megamenu-content, footer {
+	font-family: "PT Serif", 'Times New Roman', Times, serif;
+    color: #1f0909;
+}
+
+#megamenu-back-btn {
+	color: #1f0909;
+	border-color: #1f0909;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title:before {
+	color: #1f0909;
+}
+
+.megamenu-menu-list li a:hover, .megamenu-menu-list li a.active {
+	color: inherit;
+	background-color: #e8e7df;
+}
+
+.long-btn:hover {
+	background-color: #e8e7df;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+	background-color: #D2D1D1;
+}
+
+.btn-default {
+	background-color: transparent;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+.ty-show-word-count #footer-word-count {
+	background: #c7c5c5;
+}
+
+#typora-quick-open {
+    background-color: inherit;
+}
+
+.md-diagram-panel {
+	margin-top: 8px;
+}
+
+.file-list-item-file-name {
+	font-weight: initial;
+}
+
+.file-list-item-summary {
+	opacity: 1;
+}
+
+.file-list-item {
+	color: #777;
+}
+
+.file-list-item.active {
+	background-color: inherit;
+	color: black;
+}
+
+.ty-side-sort-btn.active {
+	background-color: inherit;
+}
+
+.file-list-item.active .file-list-item-file-name  {
+	font-weight: bold;
+}
+
+.file-list-item{
+    opacity:1 !important;
+}
+
+.file-library-node.active>.file-node-background{
+	background-color: rgba(32, 43, 51, 0.63);
+	background-color: var(--active-file-bg-color);
+}
+
+.file-tree-node.active>.file-node-content{
+	color: white;
+	color: var(--active-file-text-color);
+}
+
+.md-task-list-item>input {
+	margin-left: -1.7em;
+	margin-top: calc(1rem - 12px);
+	-webkit-appearance: button;
+}
+
+input {
+	border: 1px solid #aaa;
+}
+
+.megamenu-menu-header #megamenu-menu-header-title,
+.megamenu-menu-header:hover, 
+.megamenu-menu-header:focus {
+	color: inherit;
+}
+
+.dropdown-menu .divider {
+	border-color: #e5e5e5;
+	opacity: 1;
+}
+
+/* https://github.com/typora/typora-issues/issues/2046 */
+.os-windows-7 strong,
+.os-windows-7 strong  {
+	font-weight: 760;
+}
+
+.ty-preferences .btn-default {
+	background: transparent;
+}
+
+.ty-preferences .window-header {
+	border-bottom: 1px dashed #202B33;
+	box-shadow: none;
+}
+
+#sidebar-loading-template, #sidebar-loading-template.file-list-item {
+	color: #777;
+}
+
+.searchpanel-search-option-btn.active {
+	background: #777;
+	color: white;
+}
+
+.export-detail, .light .export-detail, 
+.light .export-item.active, 
+.light .export-items-list-control {
+	background: #e0e0e0;
+	border-radius: 2px;
+	font-weight: 700;
+	color: inherit
+}
+
+
+</style><title>《印像》设计文档</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='印像设计文档'><span>《印像》设计文档</span></h1><span style="color: rgb(255, 179, 179);font-weight: 700;position: fixed;top: 0;left: 0;z-index: 2;">👇下面三个红色箭头可以控制开合目录</span><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n81"><a class="md-toc-inner" href="#印像设计文档">《印像》设计文档</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n228"><a class="md-toc-inner" href="#作品体验">作品体验</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n86"><a class="md-toc-inner" href="#主页"><strong>主页</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n89"><a class="md-toc-inner" href="#pc端">pc端</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n92"><a class="md-toc-inner" href="#移动端"><strong>移动端</strong></a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n95"><a class="md-toc-inner" href="#二级界面">二级界面</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n100"><a class="md-toc-inner" href="#a影集">A影集</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n104"><a class="md-toc-inner" href="#pc-1">pc</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n106"><a class="md-toc-inner" href="#移动-1">移动</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n108"><a class="md-toc-inner" href="#b相片电影">B相片电影</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n111"><a class="md-toc-inner" href="#pc-2">pc</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n113"><a class="md-toc-inner" href="#移动-2">移动</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n115"><a class="md-toc-inner" href="#c电子杂志">C电子杂志</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n119"><a class="md-toc-inner" href="#pc-3">pc</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n121"><a class="md-toc-inner" href="#移动-3">移动</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n124"><a class="md-toc-inner" href="#三级界面">三级界面</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n125"><a class="md-toc-inner" href="#载入前loading界面"><strong>载入前Loading界面</strong></a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n129"><a class="md-toc-inner" href="#影集三级界面"><strong>影集三级界面</strong></a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n135"><a class="md-toc-inner" href="#首屏">首屏</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n137"><a class="md-toc-inner" href="#余下部分">余下部分</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n138"><a class="md-toc-inner" href="#图片预览">图片预览</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n140"><a class="md-toc-inner" href="#电子杂志三级界面"><strong>电子杂志三级界面</strong></a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n145"><a class="md-toc-inner" href="#补充说明"><mark>补充说明</mark></a></span></p><span class="toc-ctrl"></span></div>
+<h2 id='作品体验'><span>作品体验</span></h2><blockquote><p><span>访问网站</span><a href='http://yx.whisper.ink' target="_blank"><span>yx.whisper.ink</span></a><span>，或者扫描以下二维码。</span></p></blockquote><p><img src="data:image/png;base64,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" alt="qrcode_yx.whisper.ink" style="zoom:35%;" /></p><h2 id='主页'><strong><span>主页</span></strong></h2><blockquote><p><span>网页主页设计三个交互按钮，设计为拍立得照片的形式，分别对应A影集、B相片电影、C电子杂志。主页选择深蓝色作为背景，以达到突出三张拍立得片为主题的想法。整体设计以简洁大方，富有秩序感为思路，删减掉多余的文字信息，并将必要的信息折叠（文字排版进行特殊设计），滚动鼠标方可查看。第一眼打开网页时，仅展示出杂志名称。</span></p></blockquote><h4 id='pc端'><span>pc端</span></h4><p><img src="index.assets/image-20220505161730886.png" referrerpolicy="no-referrer" alt="image-20220505161730886"></p><p><img src="index.assets/image-20220505161813861.png" referrerpolicy="no-referrer" alt="image-20220505161813861"></p><h4 id='移动端'><strong><span>移动端</span></strong></h4><p><img src="index.assets/IMG_20220505_155332.jpg.jpg" alt="IMG_20220505_155332.jpg" style="zoom:25%;" /></p><p>&nbsp;</p><h2 id='二级界面'><span>二级界面</span></h2><blockquote><p><span>二级界面分别对应A、B、C界面，整体思路依旧沿用“简洁大方，富有秩序感”，分别以橙红色、紫罗兰色、草绿色为主题颜色，进行区分。</span></p><p><span>整体版式为左右分布式，左边为板块对应封面，右边为对应子项目（三级界面）入口。返回按钮设计在头部右上角。</span></p><p>
+	<span>移动端状态下，首屏界面底部会出现一个指示用户滚动的箭头组件，增强用户交互体验。</span></p></blockquote><h3 id='a影集'><span>A影集</span></h3><blockquote><p><span>子项目入口在大屏PC界面状态下为横向滚动样式，用户可以通过直接滚动鼠标来界面子项。</span></p><p><span>可以点击对应子项，前往影集对应三级界面：分别对应A1印物、A2印生活、A3印景、A4印品、A5印人。</span></p></blockquote><h4 id='pc-1'><span>pc</span></h4><p><img src="index.assets/image-20220505155929253.png" alt="image-20220505155929253" style="zoom:25%;" /></p><h4 id='移动-1'><span>移动</span></h4><p><img src="index.assets/IMG_20220505_160025.jpg" alt="IMG_20220505_160025" style="zoom:25%;" /></p><h3 id='b相片电影'><span>B相片电影</span></h3><blockquote><p><span>右侧子项的是一个视频（无声视频），直接设计在了二级界面视图上，可以通过点击右侧子项，控制视频的播放与暂停。</span></p></blockquote><h4 id='pc-2'><span>pc</span></h4><p><img src="index.assets/image-20220505160311591.png" referrerpolicy="no-referrer" alt="image-20220505160311591"></p><h4 id='移动-2'><span>移动</span></h4><p><img src="index.assets/image-20220505160352551.png" alt="image-20220505160352551" style="zoom:25%;" /></p><h3 id='c电子杂志'><span>C电子杂志</span></h3><blockquote><p><span>由于我们的杂志目前只有一期，所以这里的右侧子项只有一项，所有显得略显单调。</span></p><p><span>整体设计如A影集一般，右侧子项也是设定成横向滚动的效果；点击杂志封面，将会体验较真实的阅读感受。</span></p></blockquote><h4 id='pc-3'><span>pc</span></h4><p><img src="index.assets/image-20220505162541738.png" referrerpolicy="no-referrer" alt="image-20220505162541738"></p><h4 id='移动-3'><span>移动</span></h4><p><img src="index.assets/image-20220505162625180.png" alt="image-20220505162625180" style="zoom:25%;" /></p><p>&nbsp;</p><h2 id='三级界面'><span>三级界面</span></h2><h3 id='载入前loading界面'><strong><span>载入前Loading界面</span></strong></h3><blockquote><p><span>由于该类网站静态图片资源较多，加载需要一定时间，所以设计了一个界面加载完毕前的loading界面，改善观感。</span></p></blockquote><iframe src="../loading/index.html" style="width: 100%;height: 600px;" __idm_id__="4489217"></iframe><p style="display: none;"><img src="index.assets/image-20220505160643976.png"  referrerpolicy="no-referrer" alt="image-20220505160643976"></p><h3 id='影集三级界面'><strong><span>影集三级界面</span></strong></h3><blockquote><p><span>该界面分为3个部分：首屏顶部背景音乐控制、首屏主体轮播图、余下部分。</span></p><p><span>首屏顶部：在界面启动前左上角Logo旁边为三角播放按钮，在用户点击之后，将变为暂停按钮；播放中途，还会有背景进度条来显示当前音乐播放的进度。</span></p><p><span>首页主体：该部分是一组轮播图，图片内容是该影集板块对应的杂志对翻页的展示；用户可以通过鼠标拖动或者点击左右的按钮来切换图片。</span></p><p><span>余下部分：这部分最开始是一个“introduce”介绍该板块影集的说明文字。在此之后是以“瀑布流”形式呈现的影集图片；这部分还做了“按需加载”的处理，即并不一下子加载所有图片，而是通过用户滚动鼠标，来一部分一部分加载图片，这种处理可减少一些不必要的流量损失；这个板块的图片还可以点击预览，方便观看细节。</span></p></blockquote><h4 id='首屏'><span>首屏</span></h4><p><img src="index.assets/image-20220505160823146.png" referrerpolicy="no-referrer" alt="image-20220505160823146"></p><h4 id='余下部分'><span>余下部分</span><img src="index.assets/image-20220505160916765.png" referrerpolicy="no-referrer" alt="image-20220505160916765"></h4><h4 id='图片预览'><span>图片预览</span></h4><p><img src="index.assets/image-20220505161402867.png" referrerpolicy="no-referrer" alt="image-20220505161402867"></p><h3 id='电子杂志三级界面'><strong><span>电子杂志三级界面</span></strong></h3><blockquote><p><span>该界面为C电子杂志的子级界面，可以体验较为真实的阅读感受。</span></p></blockquote><p><img src="index.assets/image-20220505161558773.png" referrerpolicy="no-referrer" alt="image-20220505161558773"></p><p>&nbsp;</p><h2 id='补充说明'><mark><span>补充说明</span></mark></h2><p><strong><span>电子杂志三级界面</span></strong><span>是由</span><code>Flip Html5</code><span>工具生成的电子web网页，并非本团队设计，为尊重该平台，特此说明。</span></p><p><span>本作品的设计灵感来源于</span><a href='https://im.daidr.me/'><span>戴兜的小屋 </span></a><span>、</span><a href='http://ordinary-magazine.com/'><span>ORDINARY</span></a><span>、</span><a href='https://github.com/LoeiFy/Diaspora'><span>博客主题——素锦</span></a><span>，为表示感谢，特此说明。</span></p><p><span>除以上提到的，其余部分，如服务器及域名的购买、网站的搭建、网站代码的编写、摄影素材的拍摄、视频及音频的创作、整体界面设计等，均为团队小组自主完成。</span></p><p><span>网站运用了vue这一技术栈，并且使用了插件——fancybox，实现了图片预览以及轮播图，特此感谢。</span></p><p>&nbsp;</p></div></div>
+</body>
+<script>
+	document.querySelector(".toc-ctrl").onclick=function(){
+		// console.log(this.parentElement.style.transform);
+		if (window.getComputedStyle(this.parentElement).transform.split(',')[4]==0) {
+			this.parentElement.style.transform = 'translate(-100%, -50%)'
+			this.style.left="125%"
+			this.style.top="-40vh"
+			console.log(window.getComputedStyle(this, ':before').display)
+		}else{
+			this.parentElement.removeAttribute("style");
+			this.removeAttribute("style");
+			if (window.innerWidth<1080) {
+				this.parentElement.style.transform="translateY(-50%)"
+				this.style.left="50%"
+				this.style.top="0"
+				document.body.onclick=function(){
+					if (event && event.stopPropagation) {
+						event.stopPropagation()
+					} else {
+						window.event.cancelBubble = true
+					}
+					// console.log(event.target);
+					document.body.onclick = null
+				}
+			}
+		}
+	}
+</script>
+</html>
